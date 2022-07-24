@@ -28,7 +28,7 @@ class CategoryController extends Controller
         $this->categoryService->create($category);
     }
 
-    public function destory($id)
+    public function destroy($id)
     {
         $this->categoryService->destroy($id);
     }
