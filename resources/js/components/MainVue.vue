@@ -7,6 +7,9 @@
             <router-link to="/categories/list">
                 <v-btn class="primary mx-3">Kategorie</v-btn>
             </router-link>
+            <v-spacer>
+            </v-spacer>
+                <v-btn class="primary mx-3" @click="logout">Wyloguj się</v-btn>
         </v-footer>
         <v-main>
             <router-view></router-view>
@@ -16,7 +19,14 @@
 
 <script>
     export default {
-        mounted() {
+        methods:{
+            async logout(){
+                await this.$http.post("/logout")
+                .then(response=>{
+                    console.log(response);
+                })
+                window.location.reload();
+            }
         }
     }
 </script>
